@@ -5,6 +5,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>Herc Grades</h1>
       </div>
     );
   }

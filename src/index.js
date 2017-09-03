@@ -9,9 +9,12 @@ ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
 
 const config = {
-  apiKey: 'your_api_key',
-  authDomain: 'your_db_name.firebaseio.com',
-  databaseURL: 'https://your_db_name.firebaseio.com/'
+  apiKey: "AIzaSyAaBE7GfHVCx6TvXtg81-PHtZIe-cbR0c4",
+  authDomain: "hercgrades.firebaseapp.com",
+  databaseURL: "https://hercgrades.firebaseio.com",
+  projectId: "hercgrades",
+  storageBucket: "hercgrades.appspot.com",
+  messagingSenderId: "105340824596"
 };
 
 firebase.initializeApp(config);

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-import Button from "react-bootstrap/lib/Button";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Col from "react-bootstrap/lib/Col";
 
+import Login from "./components/Login";
 import MainNav from "./components/MainNav";
 import './App.css';
 
@@ -21,12 +20,6 @@ class App extends Component {
       </Router>
     );
   }
-}
-
-const Login = () => {
-  return(
-  <h1>Login</h1>
-  )
 }
 
 const Home = () => {

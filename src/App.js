@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Col from "react-bootstrap/lib/Col";
 
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import MainNav from "./components/MainNav";
 import './App.css';
 

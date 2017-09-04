@@ -27,7 +27,6 @@ class SeatingChart extends Component {
         {this.state.students.map(s=>(
           <input type="radio" />
         ))}
-        <submit>
       </form>
     )
   }

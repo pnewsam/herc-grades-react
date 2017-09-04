@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import CenteredCard from "../bulma/CenteredCard";
 
 class LoginForm extends Component {
   constructor(props){
@@ -20,48 +21,51 @@ class LoginForm extends Component {
 
   render(){
     return(
-      <form>
-        <div className="field">
-          <label className="label">Email</label>
-          <div className="control">
-            <input
-              className="input"
-              id="email"
-              type="text"
-              placeholder="Enter email here..."
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
+      <CenteredCard>
+        <h1 className="title is1">Log in to your account</h1>
+        <form>
+          <div className="field">
+            <label className="label">Email</label>
+            <div className="control">
+              <input
+                className="input"
+                id="email"
+                type="text"
+                placeholder="Enter email here..."
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+            </div>
           </div>
-        </div>
-        <div className="field">
-          <label className="label">Password</label>
-          <div className="control">
-            <input
-              className="input"
-              id="pass"
-              type="password"
-              placeholder="Enter password here..."
-              value={this.state.pass}
-              onChange={this.handleChange}
-            />
+          <div className="field">
+            <label className="label">Password</label>
+            <div className="control">
+              <input
+                className="input"
+                id="pass"
+                type="password"
+                placeholder="Enter password here..."
+                value={this.state.pass}
+                onChange={this.handleChange}
+              />
+            </div>
           </div>
-        </div>
-        <div className="field">
-          <label className="label">Confirm Password</label>
-          <div className="control">
-            <input
-              className="input"
-              id="passConf"
-              type="password"
-              placeholder="Retype password here..."
-              value={this.state.passConf}
-              onChange={this.handleChange}
-            />
+          <div className="field">
+            <label className="label">Confirm Password</label>
+            <div className="control">
+              <input
+                className="input"
+                id="passConf"
+                type="password"
+                placeholder="Retype password here..."
+                value={this.state.passConf}
+                onChange={this.handleChange}
+              />
+            </div>
           </div>
-        </div>
-        <button className="button is-primary" type="submit">Submit</button>
-      </form>
+          <button className="button is-primary" type="submit">Submit</button>
+        </form>
+      </CenteredCard>
     )
   }
 }

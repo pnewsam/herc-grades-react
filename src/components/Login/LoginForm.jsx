@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import FormGroup from "react-bootstrap/lib/FormGroup";
-import FormControl from "react-bootstrap/lib/FormControl";
-import ControlLabel from "react-bootstrap/lib/ControlLabel";
-import Button from "react-bootstrap/lib/Button";
-import Col from "react-bootstrap/lib/Col";
-import PageHeader from "react-bootstrap/lib/PageHeader";
+
 
 class LoginForm extends Component {
   constructor(props){
@@ -25,45 +20,48 @@ class LoginForm extends Component {
 
   render(){
     return(
-      <Col md={8} mdOffset={2}>
-        <PageHeader >Login</PageHeader>
-        <form>
-          <FormGroup
-            controlId="email"
-          >
-            <ControlLabel>Email</ControlLabel>
-            <FormControl
+      <form>
+        <div className="field">
+          <label className="label">Email</label>
+          <div className="control">
+            <input
+              className="input"
+              id="email"
               type="text"
               placeholder="Enter email here..."
               value={this.state.email}
               onChange={this.handleChange}
             />
-          </FormGroup>
-          <FormGroup
-            controlId="pass"
-          >
-            <ControlLabel>Password</ControlLabel>
-            <FormControl
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Password</label>
+          <div className="control">
+            <input
+              className="input"
+              id="pass"
               type="password"
               placeholder="Enter password here..."
               value={this.state.pass}
               onChange={this.handleChange}
             />
-          </FormGroup>
-          <FormGroup
-            controlId="passConf"
-          >
-            <ControlLabel>Confirm Password</ControlLabel>
-            <FormControl
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Confirm Password</label>
+          <div className="control">
+            <input
+              className="input"
+              id="passConf"
               type="password"
               placeholder="Retype password here..."
               value={this.state.passConf}
               onChange={this.handleChange}
             />
-          </FormGroup>
-          <Button type="submit" bsStyle="primary">Submit</Button>
-        </form>
-      </Col>
+          </div>
+        </div>
+        <button className="button is-primary" type="submit">Submit</button>
+      </form>
     )
   }
 }

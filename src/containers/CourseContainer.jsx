@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ApiUtil from "../utils/apiUtil";
 import StudentsContainer from "./StudentsContainer";
+import AssignmentsContainer from "./AssignmentsContainer";
 import { course } from "../utils/sampleData";
 
 class CourseContainer extends Component {
@@ -40,6 +41,7 @@ class CourseContainer extends Component {
       <div>
         <h1 className="title is-1">{this.state.name || "Course"}</h1>
         <StudentsContainer courseId={this.state.id}/>
+        <AssignmentsContainer courseId={this.state.id}/>
       </div>
     )
   }

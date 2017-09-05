@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import apiUtil from "../utils/apiUtil";
+import { Link } from "react-router-dom";
+import ApiUtil from "../utils/apiUtil";
 
 class CoursesContainer extends Component {
   constructor(props){
@@ -10,7 +11,9 @@ class CoursesContainer extends Component {
   }
 
   componentDidMount(){
-    const url = apiUtil().buildUrl();
+    const url = ApiUtil().buildRequestUri({
+      resource: "courses"
+    });
     console.log(url);
     fetch(url)
     .then(r => r.json())
@@ -23,10 +26,10 @@ class CoursesContainer extends Component {
   render(){
     return(
       <div>
-        <h1>Courses</h1>
+        <h1 className="title is-1">Courses</h1>
         <ul>
         {this.state.courses.map(c=>
-          <li>{c.name}</li>
+          <li><Link to={"courses/" + c.id}>{c.name}</Link></li>
         )}
         </ul>
       </div>

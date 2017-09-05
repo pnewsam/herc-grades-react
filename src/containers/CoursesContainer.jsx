@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import apiUtil from "../utils/apiUtil";
 
-class Courses extends Component {
+class CoursesContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -9,9 +10,9 @@ class Courses extends Component {
   }
 
   componentDidMount(){
-    const proxy = 'https://cors-anywhere.herokuapp.com/'
-    const url = `https://canvas.instructure.com/api/v1/courses?access_token=${process.env.REACT_APP_ACCESS_TOKEN}`
-    fetch(proxy + url)
+    const url = apiUtil().buildUrl();
+    console.log(url);
+    fetch(url)
     .then(r => r.json())
     .then(r => {
       this.setState({ courses: r })
@@ -33,4 +34,4 @@ class Courses extends Component {
   }
 }
 
-export default Courses;
+export default CoursesContainer;

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Login from "./components/Login/Login";
-import Courses from "./components/Courses/Courses";
+import CoursesContainer from "./containers/CoursesContainer";
+import CourseContainer from "./containers/CourseContainer";
 import Navbar from "./components/Navbar";
 import './App.css';
 
@@ -16,7 +17,8 @@ class App extends Component {
             <div className="container">
               <Route exact path="/" component={Home}/>
               <Route path="/login" component={Login}/>
-              <Route path="/courses" component={Courses}/>
+              <Route path="/courses" component={CoursesContainer}/>
+              <Route path="/courses/:course_id" component={CourseContainer}/>
             </div>
           </div>
         </div>

@@ -8,26 +8,43 @@ class SeatingChartContainer extends Component {
     this.state = {
       courseId: props.courseId,
       students: props.students,
-      seats: {}
+      seatAssignments: {}
     };
   }
 
   componentDidMount(){
-    let ref = database.ref().child("seatingCharts/" + this.state.courseId);
-    if (!ref) {
-      console.log('in if!');
-      this.initSeats(ref);
-    }
+    let ref = database.ref("seatingCharts/" + this.state.courseId + "/seatAssignments");
     ref.once("value").then(snap => {
-      this.setState({ seats: snap.val() });
-      console.log(this.state);
+      if (snap.val() === null) {
+        this.initSeats(ref);
+      }
+      this.setState({ seatAssignments: snap.val() });
     });
   }
 
   initSeats(ref){
+    const n = this.state.students.length;
+    let nRows, nCols;
+    if (n >= 16 && n <= 20) {
+      nRows = 4; nCols = 5;
+    } else if (n >= 21 && n <= 24) {
+      nRows = 4; nCols = 6;
+    } else if (n >= 25 && n <= 30) {
+      nRows = 5; nCols = 6;
+    } else if (n >= 31 && n <= 35) {
+      nRows = 5; nCols = 7;
+    } else if (n >= 36 && n <= 42) {
+      nRows = 6; nCols = 7;
+    } else if (n >= 43 && n <= 48) {
+      nRows = 6; nCols = 8;
+    }
     let o = {};
     for (let i = 0; i < this.state.students.length; i++) {
-      o[this.state.students[i].id] = i;
+      let coords = '';
+      let r = Math.floor(i / nCols).toString();
+      let c = (i % nCols).toString();
+      coords = coords + r + c;
+      o[this.state.students[i].id] = coords;
     }
     ref.set(o);
   }

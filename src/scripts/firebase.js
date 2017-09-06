@@ -8,7 +8,6 @@ const config = {
   storageBucket: "hercgrades.appspot.com",
   messagingSenderId: "105340824596"
 };
-
 firebase.initializeApp(config);
 const database = firebase.database();
 

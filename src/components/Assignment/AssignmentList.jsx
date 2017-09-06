@@ -3,9 +3,15 @@ import { AssignmentListItem } from "./AssignmentListItem";
 
 export const AssignmentList = (props) => {
   return(
-    <div>
+    <div className="content">
     {props.assignments.map(a=>(
-      <AssignmentListItem name={a.name} description={a.description}/>
+      <AssignmentListItem
+        key={a.id}
+        name={a.name}
+        description={a.description}
+        dueAt={a.due_at}
+        createdAt={a.created_at}
+      />
     ))}
     </div>
   )

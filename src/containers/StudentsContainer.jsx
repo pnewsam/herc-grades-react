@@ -33,24 +33,28 @@ class StudentsContainer extends Component {
     });
   }
 
-  formatName(name){
-    return name.split(" ").map( w => capitalize(w.toLowerCase()) ).join(" ");
-  }
-
-
   render(){
     return(
       <div>
         <h1 className="title is-1">Students</h1>
         <ul>
         {this.state.students.map(s=>(
-          <li>{this.formatName(s.name)}</li>
+          <StudentListItem key={s.id} name={s.name}/>
         )
         )}
         </ul>
       </div>
     )
   }
+}
+
+const StudentListItem = (props) => {
+  function formatName(name) {
+    return name.split(" ").map( w => capitalize(w.toLowerCase()) ).join(" ");
+  }
+  return(
+    <li>{formatName(props.name)}</li>
+  )
 }
 
 export default StudentsContainer;

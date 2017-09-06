@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import ApiUtil from "../utils/apiUtil";
-import StudentsContainer from "./StudentsContainer";
-import AssignmentsContainer from "./AssignmentsContainer";
-import { course } from "../utils/sampleData";
+// import StudentsContainer from "./StudentsContainer";
+// import AssignmentsContainer from "./AssignmentsContainer";
+import SeatingChartContainer from "./SeatingChartContainer";
+import { course, students } from "../utils/sampleData";
 
 class CourseContainer extends Component {
   constructor(props){
@@ -10,7 +11,8 @@ class CourseContainer extends Component {
     this.fetchCourse = this.fetchCourse.bind(this);
     this.state = {
       id: props.match.params.course_id,
-      name: ""
+      name: "",
+      students: students
     }
   }
 
@@ -40,8 +42,7 @@ class CourseContainer extends Component {
     return(
       <div>
         <h1 className="title is-1">{this.state.name || "Course"}</h1>
-        <StudentsContainer courseId={this.state.id}/>
-        <AssignmentsContainer courseId={this.state.id}/>
+        <SeatingChartContainer courseId={this.state.id} students={students}/>
       </div>
     )
   }

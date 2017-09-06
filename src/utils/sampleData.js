@@ -1032,104 +1032,204 @@ export var assignments = [
 ]
 
 export var students = [
-  {
-      "id": 4292609,
-      "name": "Maria Aviles",
-      "sortable_name": "Aviles, Maria",
-      "short_name": "Maria Aviles",
-      "sis_user_id": "IC_234147",
-      "integration_id": null,
-      "sis_login_id": "MALUISAAVILES@GMAIL.COM",
-      "login_id": "MALUISAAVILES@GMAIL.COM"
-  },
-  {
-      "id": 4266097,
-      "name": "VANESSA AVILES",
-      "sortable_name": "AVILES, VANESSA",
-      "short_name": "VANESSA AVILES",
-      "sis_user_id": "1506298",
-      "integration_id": null,
-      "sis_login_id": "1506298",
-      "login_id": "1506298"
-  },
-  {
-      "id": 4348271,
-      "name": "ALFREDO BARCENAS",
-      "sortable_name": "BARCENAS, ALFREDO",
-      "short_name": "ALFREDO BARCENAS",
-      "sis_user_id": "IC_128380",
-      "integration_id": null,
-      "sis_login_id": "BARCENASSD@YAHOO.COM",
-      "login_id": "BARCENASSD@YAHOO.COM"
-  },
-  {
-      "id": 4270488,
-      "name": "JAZLEEN BARCENAS",
-      "sortable_name": "BARCENAS, JAZLEEN",
-      "short_name": "JAZLEEN BARCENAS",
-      "sis_user_id": "1517705",
-      "integration_id": null,
-      "sis_login_id": "1517705",
-      "login_id": "1517705"
-  },
-  {
-      "id": 4267860,
-      "name": "SAMANTHA BONILLA-MICHEL",
-      "sortable_name": "BONILLA-MICHEL, SAMANTHA",
-      "short_name": "SAMANTHA BONILLA-MICHEL",
-      "sis_user_id": "1514375",
-      "integration_id": null,
-      "sis_login_id": "1514375",
-      "login_id": "1514375"
-  },
-  {
-      "id": 4305005,
-      "name": "Juan Bonilla",
-      "sortable_name": "Bonilla, Juan",
-      "short_name": "Juan Bonilla",
-      "sis_user_id": "IC_292930",
-      "integration_id": null,
-      "sis_login_id": "JUANMANIX6@HOTMAIL.COM",
-      "login_id": "JUANMANIX6@HOTMAIL.COM"
-  },
-  {
-      "id": 4271692,
-      "name": "LEIGH CABALE",
-      "sortable_name": "CABALE, LEIGH",
-      "short_name": "LEIGH CABALE",
-      "sis_user_id": "1519428",
-      "integration_id": null,
-      "sis_login_id": "1519428",
-      "login_id": "1519428"
-  },
-  {
-      "id": 4269800,
-      "name": "ASHLEY CAMACHO",
-      "sortable_name": "CAMACHO, ASHLEY",
-      "short_name": "ASHLEY CAMACHO",
-      "sis_user_id": "1516827",
-      "integration_id": null,
-      "sis_login_id": "1516827",
-      "login_id": "1516827"
-  },
-  {
-      "id": 4270123,
-      "name": "KARLA CAMACHO",
-      "sortable_name": "CAMACHO, KARLA",
-      "short_name": "KARLA CAMACHO",
-      "sis_user_id": "1517230",
-      "integration_id": null,
-      "sis_login_id": "1517230",
-      "login_id": "1517230"
-  },
-  {
-      "id": 4270094,
-      "name": "SAMANTHA CAPETILLO LEMUS",
-      "sortable_name": "CAPETILLO LEMUS, SAMANTHA",
-      "short_name": "SAMANTHA CAPETILLO LEMUS",
-      "sis_user_id": "1517197",
-      "integration_id": null,
-      "sis_login_id": "1517197",
-      "login_id": "1517197"
-  }
+    {
+        "id": 4292609,
+        "name": "Maria Aviles",
+        "sortable_name": "Aviles, Maria",
+        "short_name": "Maria Aviles",
+        "sis_user_id": "IC_234147",
+        "integration_id": null,
+        "sis_login_id": "MALUISAAVILES@GMAIL.COM",
+        "login_id": "MALUISAAVILES@GMAIL.COM"
+    },
+    {
+        "id": 4266097,
+        "name": "VANESSA AVILES",
+        "sortable_name": "AVILES, VANESSA",
+        "short_name": "VANESSA AVILES",
+        "sis_user_id": "1506298",
+        "integration_id": null,
+        "sis_login_id": "1506298",
+        "login_id": "1506298"
+    },
+    {
+        "id": 4348271,
+        "name": "ALFREDO BARCENAS",
+        "sortable_name": "BARCENAS, ALFREDO",
+        "short_name": "ALFREDO BARCENAS",
+        "sis_user_id": "IC_128380",
+        "integration_id": null,
+        "sis_login_id": "BARCENASSD@YAHOO.COM",
+        "login_id": "BARCENASSD@YAHOO.COM"
+    },
+    {
+        "id": 4270488,
+        "name": "JAZLEEN BARCENAS",
+        "sortable_name": "BARCENAS, JAZLEEN",
+        "short_name": "JAZLEEN BARCENAS",
+        "sis_user_id": "1517705",
+        "integration_id": null,
+        "sis_login_id": "1517705",
+        "login_id": "1517705"
+    },
+    {
+        "id": 4267860,
+        "name": "SAMANTHA BONILLA-MICHEL",
+        "sortable_name": "BONILLA-MICHEL, SAMANTHA",
+        "short_name": "SAMANTHA BONILLA-MICHEL",
+        "sis_user_id": "1514375",
+        "integration_id": null,
+        "sis_login_id": "1514375",
+        "login_id": "1514375"
+    },
+    {
+        "id": 4305005,
+        "name": "Juan Bonilla",
+        "sortable_name": "Bonilla, Juan",
+        "short_name": "Juan Bonilla",
+        "sis_user_id": "IC_292930",
+        "integration_id": null,
+        "sis_login_id": "JUANMANIX6@HOTMAIL.COM",
+        "login_id": "JUANMANIX6@HOTMAIL.COM"
+    },
+    {
+        "id": 4271692,
+        "name": "LEIGH CABALE",
+        "sortable_name": "CABALE, LEIGH",
+        "short_name": "LEIGH CABALE",
+        "sis_user_id": "1519428",
+        "integration_id": null,
+        "sis_login_id": "1519428",
+        "login_id": "1519428"
+    },
+    {
+        "id": 4269800,
+        "name": "ASHLEY CAMACHO",
+        "sortable_name": "CAMACHO, ASHLEY",
+        "short_name": "ASHLEY CAMACHO",
+        "sis_user_id": "1516827",
+        "integration_id": null,
+        "sis_login_id": "1516827",
+        "login_id": "1516827"
+    },
+    {
+        "id": 4270123,
+        "name": "KARLA CAMACHO",
+        "sortable_name": "CAMACHO, KARLA",
+        "short_name": "KARLA CAMACHO",
+        "sis_user_id": "1517230",
+        "integration_id": null,
+        "sis_login_id": "1517230",
+        "login_id": "1517230"
+    },
+    {
+        "id": 4270094,
+        "name": "SAMANTHA CAPETILLO LEMUS",
+        "sortable_name": "CAPETILLO LEMUS, SAMANTHA",
+        "short_name": "SAMANTHA CAPETILLO LEMUS",
+        "sis_user_id": "1517197",
+        "integration_id": null,
+        "sis_login_id": "1517197",
+        "login_id": "1517197"
+    },
+    {
+        "id": 4267241,
+        "name": "ZENIA CARRANZA",
+        "sortable_name": "CARRANZA, ZENIA",
+        "short_name": "ZENIA CARRANZA",
+        "sis_user_id": "1507750",
+        "integration_id": null,
+        "sis_login_id": "1507750",
+        "login_id": "1507750"
+    },
+    {
+        "id": 4347943,
+        "name": "SHERYLL CELLADORA",
+        "sortable_name": "CELLADORA, SHERYLL",
+        "short_name": "SHERYLL CELLADORA",
+        "sis_user_id": "IC_125848",
+        "integration_id": null,
+        "sis_login_id": "SCELLADORA@GMAIL.COM",
+        "login_id": "SCELLADORA@GMAIL.COM"
+    },
+    {
+        "id": 4327623,
+        "name": "MARTIN COLMENARES",
+        "sortable_name": "COLMENARES, MARTIN",
+        "short_name": "MARTIN COLMENARES",
+        "sis_user_id": "IC_150163",
+        "integration_id": null,
+        "sis_login_id": "MAR10C@COX.NET",
+        "login_id": "MAR10C@COX.NET"
+    },
+    {
+        "id": 4267614,
+        "name": "NATHAN ISAAC COLMENARES",
+        "sortable_name": "COLMENARES, NATHAN ISAAC",
+        "short_name": "NATHAN ISAAC COLMENARES",
+        "sis_user_id": "1508188",
+        "integration_id": null,
+        "sis_login_id": "1508188",
+        "login_id": "1508188"
+    },
+    {
+        "id": 4328535,
+        "name": "Senaida Cornejo",
+        "sortable_name": "Cornejo, Senaida",
+        "short_name": "Senaida Cornejo",
+        "sis_user_id": "IC_259781",
+        "integration_id": null,
+        "sis_login_id": "SENAIDACORNEJO@GMAIL.COM",
+        "login_id": "SENAIDACORNEJO@GMAIL.COM"
+    },
+    {
+        "id": 4341345,
+        "name": "Myrna Cortez",
+        "sortable_name": "Cortez, Myrna",
+        "short_name": "Myrna Cortez",
+        "sis_user_id": "IC_292929",
+        "integration_id": null,
+        "sis_login_id": "MYRNA-13@HOTMAIL.COM",
+        "login_id": "MYRNA-13@HOTMAIL.COM"
+    },
+    {
+        "id": 4268314,
+        "name": "HAILEY CORUM",
+        "sortable_name": "CORUM, HAILEY",
+        "short_name": "HAILEY CORUM",
+        "sis_user_id": "1514935",
+        "integration_id": null,
+        "sis_login_id": "1514935",
+        "login_id": "1514935"
+    },
+    {
+        "id": 4328739,
+        "name": "ANDRE DELAROSA",
+        "sortable_name": "DELAROSA, ANDRE",
+        "short_name": "ANDRE DELAROSA",
+        "sis_user_id": "IC_268002",
+        "integration_id": null,
+        "sis_login_id": "ADELAROSA2@SWEETWATERSCHOOLS.NET",
+        "login_id": "ADELAROSA2@SWEETWATERSCHOOLS.NET"
+    },
+    {
+        "id": 4293049,
+        "name": "Jhonette Delarosa",
+        "sortable_name": "Delarosa, Jhonette",
+        "short_name": "Jhonette Delarosa",
+        "sis_user_id": "IC_268003",
+        "integration_id": null,
+        "sis_login_id": "DELAROSA.JHONETTE06@GMAIL.COM",
+        "login_id": "DELAROSA.JHONETTE06@GMAIL.COM"
+    },
+    {
+        "id": 4343505,
+        "name": "ALMA DIAZ",
+        "sortable_name": "DIAZ, ALMA",
+        "short_name": "ALMA DIAZ",
+        "sis_user_id": "IC_85664",
+        "integration_id": null,
+        "sis_login_id": "KRIZYVALE@HOTMAIL.COM",
+        "login_id": "KRIZYVALE@HOTMAIL.COM"
+    }
 ]

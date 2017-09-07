@@ -11,7 +11,7 @@ const Seat = (props) => {
   let s = props.studentId;
   return(
     <div
-      id="seat-${id}"
+      id={props.coords}
       className="seating-chart__seat"
       style={{
         position: "absolute",

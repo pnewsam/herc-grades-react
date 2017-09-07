@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import ApiUtil from "../utils/apiUtil";
-// import StudentsContainer from "./StudentsContainer";
-// import AssignmentsContainer from "./AssignmentsContainer";
 import SeatingChartContainer from "./SeatingChartContainer";
 import { course, students } from "../utils/sampleData";
 

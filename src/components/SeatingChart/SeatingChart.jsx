@@ -1,33 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
+import Seat from "./Seat";
 
-class SeatingChart extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      students: [
-        {
-          id: 1,
-          name: 'Joe Shmoe'
-        },
-        {
-          id: 2,
-          name: 'Diane Lane'
-        },
-        {
-          id: 3,
-          name: 'Jane Doe'
-        }
-      ]
-    }
-  }
-
-  render(){
-    return(
-      <form>
-        {this.state.students.map(s=>(
-          <input type="radio" />
-        ))}
-      </form>
-    )
-  }
+const SeatingChart = (props) => {
+  return(
+    <form>
+      {Object.entries(props.seats).map(s=>(
+        <Seat key={s[1]} coords={s[0]} studentId={s[1]} />
+      ))}
+    </form>
+  )
 }
+
+export default SeatingChart;

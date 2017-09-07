@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import database from "../scripts/firebase";
+import SeatingChart from "../components/SeatingChart/SeatingChart";
 
 class SeatingChartContainer extends Component {
   constructor(props){
@@ -8,17 +9,18 @@ class SeatingChartContainer extends Component {
     this.state = {
       courseId: props.courseId,
       students: props.students,
-      seatAssignments: {}
+      seats: {}
     };
   }
 
   componentDidMount(){
-    let ref = database.ref("seatingCharts/" + this.state.courseId + "/seatAssignments");
+    let ref = database.ref("seatingCharts/" + this.state.courseId + "/seats");
     ref.once("value").then(snap => {
       if (snap.val() === null) {
         this.initSeats(ref);
       }
-      this.setState({ seatAssignments: snap.val() });
+      // console.log('did mount!')
+      this.setState({ seats: snap.val() });
     });
   }
 
@@ -44,14 +46,16 @@ class SeatingChartContainer extends Component {
       let r = Math.floor(i / nCols).toString();
       let c = (i % nCols).toString();
       coords = coords + r + c;
-      o[this.state.students[i].id] = coords;
+      o[coords] = this.state.students[i].id;
     }
     ref.set(o);
   }
 
   render(){
+    console.log(this.state.seats);
     return(
       <div>
+        <SeatingChart seats={this.state.seats} />
       </div>
     )
   }

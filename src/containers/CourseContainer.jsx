@@ -36,8 +36,6 @@ class CourseContainer extends Component {
     });
   }
 
-
-
   render(){
     return(
       <div>

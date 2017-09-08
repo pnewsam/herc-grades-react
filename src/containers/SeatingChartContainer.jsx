@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import database from "../scripts/firebase";
 import SeatingChart from "../components/SeatingChart/SeatingChart";
+import SeatingChartForm from "../components/SeatingChart/SeatingChartForm";
 
 class SeatingChartContainer extends Component {
   constructor(props){
@@ -9,6 +10,7 @@ class SeatingChartContainer extends Component {
     this.state = {
       courseId: props.courseId,
       students: props.students,
+      formActive: false,
       seats: {}
     };
   }
@@ -16,11 +18,12 @@ class SeatingChartContainer extends Component {
   componentDidMount(){
     let ref = database.ref("seatingCharts/" + this.state.courseId + "/seats");
     ref.once("value").then(snap => {
-      if (snap.val() === null) {
-        this.initSeats(ref);
+      if (snap.val() !== null) {
+        this.setState({ seats: snap.val() });
+      } else {
+        this.setState({ formActive: true });
       }
-      // console.log('did mount!')
-      this.setState({ seats: snap.val() });
+      // this.initSeats(ref);
     });
   }
 
@@ -53,11 +56,19 @@ class SeatingChartContainer extends Component {
 
   render(){
     console.log(this.state.seats);
-    return(
-      <div>
-        <SeatingChart seats={this.state.seats} students={this.state.students}/>
-      </div>
-    )
+    if (this.state.formActive) {
+      return(
+        <div>
+          <SeatingChartForm students={this.state.students} />
+        </div>
+      )
+    } else {
+      return(
+        <div>
+          <SeatingChart seats={this.state.seats} students={this.state.students}/>
+        </div>
+      )
+    }
   }
 }
 

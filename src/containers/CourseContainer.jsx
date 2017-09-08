@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ApiUtil from "../utils/apiUtil";
 import SeatingChartContainer from "./SeatingChartContainer";
-import { course, students } from "../utils/sampleData";
+import { students } from "../utils/sampleData";
 
 class CourseContainer extends Component {
   constructor(props){

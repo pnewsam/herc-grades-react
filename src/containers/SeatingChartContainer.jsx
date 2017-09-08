@@ -55,7 +55,7 @@ class SeatingChartContainer extends Component {
     console.log(this.state.seats);
     return(
       <div>
-        <SeatingChart seats={this.state.seats} />
+        <SeatingChart seats={this.state.seats} students={this.state.students}/>
       </div>
     )
   }

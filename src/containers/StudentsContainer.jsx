@@ -49,9 +49,7 @@ class StudentsContainer extends Component {
 }
 
 const StudentListItem = (props) => {
-  function formatName(name) {
-    return name.split(" ").map( w => capitalize(w.toLowerCase()) ).join(" ");
-  }
+
   return(
     <li>{formatName(props.name)}</li>
   )

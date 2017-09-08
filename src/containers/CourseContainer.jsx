@@ -10,12 +10,21 @@ class CourseContainer extends Component {
     this.state = {
       id: props.match.params.course_id,
       name: "",
-      students: students
+      students: this.convertToObj(students)
     }
   }
 
   componentDidMount(){
     // this.fetchCourse();
+  }
+
+  convertToObj(students){
+    let obj = {}
+    for(let i = 0; i < students.length; i++){
+      let s = students[i];
+      obj[s.id] = s;
+    }
+    return(obj);
   }
 
   fetchCourse() {
@@ -38,7 +47,7 @@ class CourseContainer extends Component {
     return(
       <div>
         <h1 className="title is-1">{this.state.name || "Course"}</h1>
-        <SeatingChartContainer courseId={this.state.id} students={students}/>
+        <SeatingChartContainer courseId={this.state.id} students={this.state.students}/>
       </div>
     )
   }

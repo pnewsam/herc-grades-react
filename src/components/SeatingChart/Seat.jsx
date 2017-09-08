@@ -1,4 +1,5 @@
 import React from "react";
+import { formatName } from "../../utils/nameFormatterUtil";
 
 const Seat = (props) => {
   let seatWidth = 100;
@@ -8,7 +9,7 @@ const Seat = (props) => {
 
   let x = (col * seatWidth + col * 10 + 5).toString() + 'px';
   let y = ((numRows - 1 - row) * seatWidth + (numRows - 1 - row) * 10 + 5).toString() + 'px';
-  let s = props.studentId;
+  let s = formatName(props.student.name);
   return(
     <div
       id={props.coords}

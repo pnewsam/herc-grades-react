@@ -6,10 +6,15 @@ const Seat = (props) => {
   let row = props.coords.charAt(0);
   let col = props.coords.charAt(1);
   let numRows = 4;
+  let s;
 
   let x = (col * seatWidth + col * 10 + 5).toString() + 'px';
   let y = ((numRows - 1 - row) * seatWidth + (numRows - 1 - row) * 10 + 5).toString() + 'px';
-  let s = formatName(props.student.name);
+  if (props.student) {
+    s = formatName(props.student.name);
+  } else {
+    s = 'Empty';
+  }
   return(
     <div
       id={props.coords}

@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import SeatingChart from "./SeatingChart";
+import CardColumn from "../bulma/CardColumn";
+import FormField from "../bulma/FormField";
 
 class SeatingChartForm extends Component {
   constructor(props){
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       students: props.students,
       numRows: 0,
       numCols: 0,
-      
+      seats: {}
     };
   }
 
@@ -19,47 +22,58 @@ class SeatingChartForm extends Component {
     });
   }
 
-
+  handleSubmit(e){
+    e.preventDefault();
+    let s = {}
+    for (let i = 0; i < this.state.numRows; i++) {
+      for (let j = 0; j < this.state.numCols; j++) {
+        let coords = i.toString() + j.toString();
+        s[coords] = 0;
+      }
+    }
+    this.setState({
+      seats: s
+    });
+  }
 
   render(){
+    console.log(this.state);
     return(
       <div className="columns">
-        <div className="column is-8 card">
-          <div className="card-content">
-            <SeatingChart numRows={this.state.numRows} numCols={this.state.numCols} />
-          </div>
-        </div>
-        <div className="column is-4 card">
-          <div className="card-content">
-            <h1>Edit Your Seating Chart</h1>
-            <form action="">
-              <div className="field">
-                <label className="label" htmlFor="">Number of Rows</label>
-                <div className="control">
-                  <input
-                    id="numRows"
-                    className="input"
-                    type="number"
-                    value={this.state.numRows}
-                    onChange={this.handleChange}
-                  />
-                </div>
-              </div>
-              <div className="field">
-                <label className="label" htmlFor="">Number of Columns</label>
-                <div className="control">
-                  <input
-                    id="numCols"
-                    className="input"
-                    type="number"
-                    value={this.state.numCols}
-                    onChange={this.handleChange}
-                  />
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+      <CardColumn is={8}>
+            <SeatingChart seats={this.state.seats} />
+      </CardColumn>
+      <CardColumn is={4}>
+        <h1>Edit Your Seating Chart</h1>
+        <form action="" onSubmit={this.handleSubmit}>
+            <FormField label="Number of Rows">
+              <input
+                id="numRows"
+                className="input"
+                type="number"
+                value={this.state.numRows}
+                onChange={this.handleChange}
+              />
+            </FormField>
+            <FormField label="Number of Columns">
+              <input
+                id="numCols"
+                className="input"
+                type="number"
+                value={this.state.numCols}
+                onChange={this.handleChange}
+              />
+            </FormField>
+            <FormField>
+              <button
+                className="button is-primary"
+                type="submit"
+              >
+                Submit
+              </button>
+            </FormField>
+          </form>
+        </CardColumn>
       </div>
     )
   }

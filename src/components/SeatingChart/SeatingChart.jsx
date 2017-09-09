@@ -1,27 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import Seat from "./Seat";
 
-class SeatingChart extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      seats: props.seats,
-      students: props.students
-    };
-  }
-  
-  render(){
-    return(
-      <div>
-        {Object.entries(this.state.seats).map(seat=>{
-          let student = this.state.students[seat[1]]
-          return(
-            <Seat key={seat[0]} coords={seat[0]} student={student} />
-          )
-        })}
-      </div>
-    )
-  }
+const SeatingChart = (props) => {
+  console.log(props);
+  return(
+    <div>
+      {Object.entries(props.seats).map(s=>
+        <Seat key={s[0]} coords={s[0]} student={s[1]} />
+      )}
+    </div>
+  )
 }
 
 export default SeatingChart;

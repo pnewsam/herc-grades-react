@@ -1,5 +1,4 @@
 import React from "react";
-import FormField from "../bulma/FormField";
 import FormSelect from "../bulma/FormSelect";
 import { formatName } from "../../utils/nameUtil";
 
@@ -7,23 +6,24 @@ const SeatingPhase = (props) => {
   return(
     <div>
       <h3 className="title is-3">Now, seat your students.</h3>
-      <form action="">
+      <form action="" onSubmit={props.handleSubmit}>
         <table className="table is-narrow">
           <tbody>
           {Object.entries(props.students).map(student => {
             return(
-              <tr>
+              <tr key={student[0]}>
                 <td>
                   <label htmlFor="" className="label">{formatName(student[1].name)}</label>
                 </td>
                 <td>
-                  <FormSelect>
+                  <FormSelect id={student[0]} handleChange={props.handleChange}>
                     {Object.entries(props.seats).map(row => {
                       return(
-                      Object.entries(row).map(seat => {
+                      Object.entries(row[1]).map(seat => {
                         let coords = row[0].toString() + seat[0].toString()
+                        let readableCoords = row[0].toString() + ", " + seat[0].toString()
                         return(
-                          <option value="">{coords}</option>
+                          <option value={coords}>{readableCoords}</option>
                           )
                       })
                       )

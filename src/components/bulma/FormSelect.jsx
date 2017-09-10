@@ -4,7 +4,7 @@ const FormSelect = (props) => {
   return(
     <div className="control">
       <div className="select">
-        <select>
+        <select id={props.id} onChange={props.handleChange}>
           {props.children}
         </select>
       </div>

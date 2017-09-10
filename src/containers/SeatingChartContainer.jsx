@@ -7,6 +7,7 @@ class SeatingChartContainer extends Component {
   constructor(props){
     super(props);
     this.seatStudents = this.seatStudents.bind(this);
+    this.calculateSeatWidth = this.calculateSeatWidth.bind(this);
     this.state = {
       courseId: props.courseId,
       students: props.students,
@@ -49,44 +50,37 @@ class SeatingChartContainer extends Component {
     });
   }
 
-  // initSeats(ref){
-  //   const n = this.state.students.length;
-  //   let nRows, nCols;
-  //   if (n >= 16 && n <= 20) {
-  //     nRows = 4; nCols = 5;
-  //   } else if (n >= 21 && n <= 24) {
-  //     nRows = 4; nCols = 6;
-  //   } else if (n >= 25 && n <= 30) {
-  //     nRows = 5; nCols = 6;
-  //   } else if (n >= 31 && n <= 35) {
-  //     nRows = 5; nCols = 7;
-  //   } else if (n >= 36 && n <= 42) {
-  //     nRows = 6; nCols = 7;
-  //   } else if (n >= 43 && n <= 48) {
-  //     nRows = 6; nCols = 8;
-  //   }
-  //   let o = {};
-  //   for (let i = 0; i < this.state.students.length; i++) {
-  //     let coords = '';
-  //     let r = Math.floor(i / nCols).toString();
-  //     let c = (i % nCols).toString();
-  //     coords = coords + r + c;
-  //     o[coords] = this.state.students[i].id;
-  //   }
-  //   ref.set(o);
-  // }
+  inactivateForm(){
+    this.setState({
+      formActive: false
+    });
+  }
+
+  calculateSeatWidth(containerWidth){
+    return ((containerWidth) / this.state.numCols) - 20;
+  }
 
   render(){
     if (this.state.formActive) {
+      console.log('form!')
       return(
         <div ref={container => { this.container = container }}>
-          <SeatingChartForm students={this.state.students} />
+          <SeatingChartForm
+            students={this.state.students}
+            courseId={this.state.courseId}
+            inactivateForm={this.inactivateForm}
+          />
         </div>
       )
     } else {
+      console.log('noform!')
       return(
         <div ref={container => { this.container = container }}>
-          <SeatingChart seats={this.state.seats} containerWidth={this.state.containerWidth}/>
+          <SeatingChart
+            seats={this.state.seats}
+            seatWidth={this.calculateSeatWidth(this.state.containerWidth)}
+            students={this.state.students}
+          />
         </div>
       )
     }

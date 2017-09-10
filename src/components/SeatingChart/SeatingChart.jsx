@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Seat from "./Seat";
 import SeatRow from "./SeatRow";
 

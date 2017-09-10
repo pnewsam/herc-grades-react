@@ -21,23 +21,17 @@ class SeatingChartForm extends Component {
   }
 
   calculateSeatWidth(containerWidth){
-    let computed = ((containerWidth * .75) / this.state.numCols) - (this.state.numCols * 10);
-    let max = 150;
-    let min = 40;
-    if (computed > max) {
-      return( max );
-    } else {
-      return Math.max(computed, min);
-    }
+    return ((containerWidth) / this.state.numCols) - 20;
   }
 
   componentDidMount(){
+    let cW = this.container.offsetWidth;
     this.setState({
-      width: this.container.offsetWidth
+      width: cW
     })
     window.addEventListener('resize', e => {
       this.setState({
-        width: this.container.offsetWidth
+        width: cW
       });
     });
   }
@@ -57,18 +51,21 @@ class SeatingChartForm extends Component {
         s[i][j] = 0;
       }
     }
+    let w = this.calculateSeatWidth(this.state.width);
     this.setState({
       seats: s,
-      seatWidth: this.calculateSeatWidth(this.state.width)
-    });
+      seatWidth: w
+    })
+    console.log(this.state)
   }
 
   render(){
-    console.log(this.state)
     return(
-      <div className="columns" ref={container => { this.container = container }}>
+      <div className="columns">
         <CardColumn is={9}>
-          <SeatingChart seats={this.state.seats} seatWidth={this.state.seatWidth}/>
+          <div ref={container => { this.container = container }}>
+            <SeatingChart seats={this.state.seats} seatWidth={this.state.seatWidth}/>
+          </div>
         </CardColumn>
         <CardColumn is={3}>
           <form action="" onSubmit={this.handleSubmit}>

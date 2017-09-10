@@ -11,7 +11,7 @@ class SeatingChartContainer extends Component {
     this.state = {
       courseId: props.courseId,
       students: props.students,
-      formActive: false,
+      formActive: true,
       seatAssignments: {},
       seats: {},
       containerWidth: 0
@@ -24,7 +24,7 @@ class SeatingChartContainer extends Component {
       if (snap.val() !== null) {
         this.setState({ seatAssignments: snap.val() });
       } else {
-        this.setState({ formActive: true });
+        // this.setState({ formActive: true });
       }
     });
     this.seatStudents();

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import SeatingChart from "./SeatingChart";
 import CardColumn from "../bulma/CardColumn";
-// import StudentList from "../StudentList/StudentList";
 import database from "../../scripts/firebase";
 import ConfigurationPhase from "./ConfigurationPhase";
 import SeatingPhase from "./SeatingPhase";

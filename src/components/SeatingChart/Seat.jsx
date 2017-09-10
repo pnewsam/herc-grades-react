@@ -6,7 +6,7 @@ const Seat = (props) => {
   if (props.student) {
     s = formatName(props.student.name);
   } else {
-    s = 'Empty';
+    s = `${props.key}`;
   }
   return(
     <div

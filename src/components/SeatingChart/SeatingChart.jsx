@@ -11,7 +11,11 @@ const SeatingChart = (props) => {
             <SeatRow key={row[0]}>
               {Object.entries(row[1]).map(seat=>{
                 return(
-                  <Seat key={`${row[0]}${seat[0]}`} student={seat[1]} width={props.seatWidth}/>
+                  <Seat
+                    key={`${row[0]}${seat[0]}`}
+                    student={seat[1]}
+                    width={props.seatWidth}
+                  />
                 )
               })}
             </SeatRow>

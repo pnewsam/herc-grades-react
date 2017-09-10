@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ApiUtil from "../utils/apiUtil";
-import { students } from "../utils/sampleData";
-import capitalize from "voca/capitalize";
+import {students} from "../utils/sampleData";
+import StudentList from "../components/StudentList/StudentList";
 
 class StudentsContainer extends Component {
   constructor(props){
@@ -36,23 +36,13 @@ class StudentsContainer extends Component {
   render(){
     return(
       <div>
-        <h1 className="title is-1">Students</h1>
-        <ul>
-        {this.state.students.map(s=>(
-          <StudentListItem key={s.id} name={s.name}/>
-        )
-        )}
-        </ul>
+        <h3 className="title is-3">Students</h3>
+        <StudentList students={students}/>
       </div>
     )
   }
 }
 
-const StudentListItem = (props) => {
 
-  return(
-    <li>{formatName(props.name)}</li>
-  )
-}
 
 export default StudentsContainer;

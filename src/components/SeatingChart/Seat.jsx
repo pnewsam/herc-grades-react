@@ -1,5 +1,5 @@
 import React from "react";
-import { formatName } from "../../utils/nameFormatterUtil";
+import { formatName } from "../../utils/nameUtil";
 
 const Seat = (props) => {
   let s;

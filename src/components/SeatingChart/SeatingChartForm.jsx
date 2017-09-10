@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import SeatingChart from "./SeatingChart";
 import CardColumn from "../bulma/CardColumn";
-import FormField from "../bulma/FormField";
 import StudentList from "../StudentList/StudentList";
+import SeatingChartConfigurationForm from "./SeatingChartConfigurationForm";
 
 class SeatingChartForm extends Component {
   constructor(props){
@@ -55,8 +55,7 @@ class SeatingChartForm extends Component {
     this.setState({
       seats: s,
       seatWidth: w
-    })
-    console.log(this.state)
+    });
   }
 
   render(){
@@ -68,34 +67,12 @@ class SeatingChartForm extends Component {
           </div>
         </CardColumn>
         <CardColumn is={3}>
-          <form action="" onSubmit={this.handleSubmit}>
-            <FormField label="Number of Rows">
-              <input
-                id="numRows"
-                className="input"
-                type="number"
-                value={this.state.numRows}
-                onChange={this.handleChange}
-              />
-            </FormField>
-            <FormField label="Number of Columns">
-              <input
-                id="numCols"
-                className="input"
-                type="number"
-                value={this.state.numCols}
-                onChange={this.handleChange}
-              />
-            </FormField>
-            <FormField>
-              <button
-                className="button is-primary"
-                type="submit"
-              >
-                Update
-              </button>
-            </FormField>
-          </form>
+          <SeatingChartConfigurationForm
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            numRows={this.state.numRows}
+            numCols={this.state.numCols}
+          />
           <StudentList students={this.state.students}/>
         </CardColumn>
       </div>

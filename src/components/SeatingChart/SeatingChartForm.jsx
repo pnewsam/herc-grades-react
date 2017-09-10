@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SeatingChart from "./SeatingChart";
 import CardColumn from "../bulma/CardColumn";
 import FormField from "../bulma/FormField";
+import StudentList from "../StudentList/StudentList";
 
 class SeatingChartForm extends Component {
   constructor(props){
@@ -20,15 +21,13 @@ class SeatingChartForm extends Component {
   }
 
   calculateSeatWidth(containerWidth){
-    let computed = (containerWidth / this.state.numCols) - (this.state.numCols * 10);
+    let computed = ((containerWidth * .75) / this.state.numCols) - (this.state.numCols * 10);
     let max = 150;
-    let min = 50;
+    let min = 40;
     if (computed > max) {
-      return(
-        Math.min(computed, max)
-      )
+      return( max );
     } else {
-      return min;
+      return Math.max(computed, min);
     }
   }
 
@@ -67,9 +66,12 @@ class SeatingChartForm extends Component {
   render(){
     console.log(this.state)
     return(
-      <div ref={container => { this.container = container }}>
-        <div className="card">
-          <form className="card-content" action="" onSubmit={this.handleSubmit}>
+      <div className="columns" ref={container => { this.container = container }}>
+        <CardColumn is={9}>
+          <SeatingChart seats={this.state.seats} seatWidth={this.state.seatWidth}/>
+        </CardColumn>
+        <CardColumn is={3}>
+          <form action="" onSubmit={this.handleSubmit}>
             <FormField label="Number of Rows">
               <input
                 id="numRows"
@@ -93,16 +95,12 @@ class SeatingChartForm extends Component {
                 className="button is-primary"
                 type="submit"
               >
-                Submit
+                Update
               </button>
             </FormField>
           </form>
-        </div>
-        <div className="card">
-          <div className="card-content">
-            <SeatingChart seats={this.state.seats} seatWidth={this.state.seatWidth}/>
-          </div>
-        </div> 
+          <StudentList students={this.state.students}/>
+        </CardColumn>
       </div>
     )
   }

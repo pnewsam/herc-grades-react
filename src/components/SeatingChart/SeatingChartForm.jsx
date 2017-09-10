@@ -8,12 +8,39 @@ class SeatingChartForm extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.calculateSeatWidth = this.calculateSeatWidth.bind(this);
     this.state = {
+      seats: {},
       students: props.students,
       numRows: 0,
       numCols: 0,
-      seats: {}
+      width: 0,
+      seatWidth: 0
     };
+  }
+
+  calculateSeatWidth(containerWidth){
+    let computed = (containerWidth / this.state.numCols) - (this.state.numCols * 10);
+    let max = 150;
+    let min = 50;
+    if (computed > max) {
+      return(
+        Math.min(computed, max)
+      )
+    } else {
+      return min;
+    }
+  }
+
+  componentDidMount(){
+    this.setState({
+      width: this.container.offsetWidth
+    })
+    window.addEventListener('resize', e => {
+      this.setState({
+        width: this.container.offsetWidth
+      });
+    });
   }
 
   handleChange(e){
@@ -26,26 +53,23 @@ class SeatingChartForm extends Component {
     e.preventDefault();
     let s = {}
     for (let i = 0; i < this.state.numRows; i++) {
+      s[i] = {}
       for (let j = 0; j < this.state.numCols; j++) {
-        let coords = i.toString() + j.toString();
-        s[coords] = 0;
+        s[i][j] = 0;
       }
     }
     this.setState({
-      seats: s
+      seats: s,
+      seatWidth: this.calculateSeatWidth(this.state.width)
     });
   }
 
   render(){
-    console.log(this.state);
+    console.log(this.state)
     return(
-      <div className="columns">
-      <CardColumn is={8}>
-            <SeatingChart seats={this.state.seats} />
-      </CardColumn>
-      <CardColumn is={4}>
-        <h1>Edit Your Seating Chart</h1>
-        <form action="" onSubmit={this.handleSubmit}>
+      <div ref={container => { this.container = container }}>
+        <div className="card">
+          <form className="card-content" action="" onSubmit={this.handleSubmit}>
             <FormField label="Number of Rows">
               <input
                 id="numRows"
@@ -73,7 +97,12 @@ class SeatingChartForm extends Component {
               </button>
             </FormField>
           </form>
-        </CardColumn>
+        </div>
+        <div className="card">
+          <div className="card-content">
+            <SeatingChart seats={this.state.seats} seatWidth={this.state.seatWidth}/>
+          </div>
+        </div> 
       </div>
     )
   }
